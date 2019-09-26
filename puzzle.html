@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/puzzle.css">
+    <title>數字拼圖</title>
+</head>
+<body>
+        <h1>Puzzle</h1>
+        <div id="app">
+        <h2>
+            <template v-if="win">你贏了，用了</template> {{ move }} step{{ move > 1 ? "s" : "" }}
+        </h2>
+        <div id="puzzle" v-if="grids.length" :style="{width:`${col*100}px`,height:`${col*100}px`}">
+            <template v-for="(row,i) in grids">
+                <Tile 
+                v-for="(item,j) in row"
+                :tile="item"
+                :position="{x:i,y:j}"
+                :col="col"
+                :key="item.label"
+                @move="moveHandler(i,j)"
+                ></Tile>
+            </template>
+        </div>
+        <br />
+        <button @click="col = 3">3X3</button>
+        <button @click="col = 4">4X4</button>
+        <button @click="init">Restart</button>
+    </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script> -->
+<script src="./js/puzzle.js"></script>
+</body>
+</html>

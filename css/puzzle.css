@@ -1,0 +1,29 @@
+html{
+    text-align: center;
+}
+#puzzle{
+    margin: 0 auto;
+}
+.tile{
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid;
+    width: 96px;
+    height: 96px;
+    margin: 2px;
+    color: #fa0;
+    background-color: #42b883;
+    font-size: 30px;
+    line-height: 96px;
+    text-align: center;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+.tile.space{
+    background-color: #fff;
+    cursor: auto;
+}
+.tile.ok{
+    border-color: red;
+}
